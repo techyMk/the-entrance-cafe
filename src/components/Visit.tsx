@@ -5,6 +5,7 @@ import { Clock, MapPin, Navigation, Phone } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
+import { Chapter } from "@/components/ui/Chapter";
 import { brand } from "@/lib/content";
 
 export function Visit() {
@@ -14,8 +15,9 @@ export function Visit() {
   return (
     <section id="visit" className="relative py-24 sm:py-32 bg-cream overflow-hidden">
       <Container className="relative">
+        <Chapter number={6} label="Find Us" />
         <SectionHeading
-          eyebrow="Visit Us"
+          className="mt-5"
           title={
             <>
               Pull up a chair —

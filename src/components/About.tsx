@@ -8,6 +8,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
 import { Counter } from "@/components/ui/Counter";
 import { StarRating } from "@/components/ui/StarRating";
+import { Chapter } from "@/components/ui/Chapter";
 import { images } from "@/lib/content";
 
 const pillars = [
@@ -96,9 +97,10 @@ export function About() {
 
           {/* Copy */}
           <div>
+            <Chapter number={3} label="The Story" invert />
             <SectionHeading
               invert
-              eyebrow="Our Story"
+              className="mt-5"
               title={
                 <>
                   A small room, a slow ritual,

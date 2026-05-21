@@ -48,7 +48,8 @@ export function SectionHeading({
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.7, delay: 0.05 }}
         className={cn(
-          "display-h2 mt-4 text-balance",
+          "display-h2 text-balance",
+          eyebrow && "mt-4",
           invert ? "text-cream" : "text-espresso"
         )}
       >

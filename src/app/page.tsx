@@ -3,6 +3,8 @@ import { Hero } from "@/components/Hero";
 import { MarqueeStrip } from "@/components/MarqueeStrip";
 import { FeaturedMenu } from "@/components/FeaturedMenu";
 import { About } from "@/components/About";
+import { Experience } from "@/components/Experience";
+import { Interstitial } from "@/components/Interstitial";
 import { Gallery } from "@/components/Gallery";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { Testimonials } from "@/components/Testimonials";
@@ -50,15 +52,33 @@ export default function Page() {
       />
       <Navbar />
       <main className="relative">
+        {/* I — Arrival */}
         <Hero />
         <MarqueeStrip />
+
+        {/* II — The Table */}
         <FeaturedMenu />
+
+        {/* III — The Story */}
         <About />
+
+        {/* IV — Experience The Space */}
+        <Experience />
+
+        {/* Editorial pause — sits between the immersive space and the lived-in moments */}
+        <Interstitial attribution="A line we live by">
+          {"An atmosphere\ndesigned to slow time."}
+        </Interstitial>
+
         <Gallery />
         <WhyChooseUs />
+
+        {/* V — Voices */}
         <Testimonials />
         <PressStrip />
         <Instagram />
+
+        {/* VI — Find Us */}
         <Visit />
         <FinalCTA />
       </main>

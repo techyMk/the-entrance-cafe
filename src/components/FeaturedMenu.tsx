@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
 import { TiltCard } from "@/components/ui/TiltCard";
+import { Chapter } from "@/components/ui/Chapter";
 import { menu } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
@@ -24,9 +25,9 @@ export function FeaturedMenu() {
       </div>
 
       <Container className="relative">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+        <Chapter number={2} label="The Table" />
+        <div className="mt-5 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
           <SectionHeading
-            eyebrow="The Menu · 01"
             title={
               <>
                 Slow-crafted. <span className="italic text-caramel">Quietly bold.</span>

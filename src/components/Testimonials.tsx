@@ -5,6 +5,7 @@ import { Quote } from "lucide-react";
 import { StarRating } from "@/components/ui/StarRating";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Chapter } from "@/components/ui/Chapter";
 import { testimonials } from "@/lib/content";
 
 export function Testimonials() {
@@ -13,10 +14,11 @@ export function Testimonials() {
 
   return (
     <section className="relative py-24 sm:py-32 bg-cream overflow-hidden">
-      <Container className="relative">
+      <Container className="relative text-center">
+        <Chapter number={5} label="Voices" align="center" />
         <SectionHeading
           align="center"
-          eyebrow="Said by Regulars"
+          className="mt-5"
           title={
             <>
               Words from the people <br />

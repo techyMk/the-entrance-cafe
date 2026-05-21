@@ -38,7 +38,8 @@ export const images = {
   about: u("1453614512568-c4024d13c247", 1600),
   aboutPortrait: u("1521017432531-fbd92d768814", 1400),
   aboutDetail: u("1497935586351-b67a49e012bf", 1400),
-  cta: u("1559925393-8be0ec4767c8", 2200),
+  // Darker, more intimate CTA scene
+  cta: u("1442975631115-c4f7b05b8a2c", 2200),
   // menu items
   menu: {
     espresso: u("1610889556528-9a770e32642f", 1400),
