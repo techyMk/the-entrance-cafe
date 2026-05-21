@@ -1,0 +1,167 @@
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { ChevronDown } from "lucide-react";
+import { useRef } from "react";
+import { Container } from "@/components/ui/Container";
+import { ButtonLink } from "@/components/ui/Button";
+import { StarRating } from "@/components/ui/StarRating";
+import { brand, images } from "@/lib/content";
+
+export function Hero() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [0, 180]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  return (
+    <section
+      id="home"
+      ref={ref}
+      className="relative h-[100svh] min-h-[680px] w-full overflow-hidden bg-espresso"
+    >
+      {/* Background image */}
+      <motion.div
+        style={{ y, scale }}
+        className="absolute inset-0 will-change-transform"
+      >
+        <Image
+          src={images.hero}
+          alt="The Entrance Cafe interior"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+      </motion.div>
+
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-espresso/40 via-espresso/30 to-espresso/85" />
+      <div className="absolute inset-0 bg-gradient-to-r from-espresso/60 via-transparent to-transparent" />
+
+      {/* Subtle grain */}
+      <div className="absolute inset-0 grain pointer-events-none" />
+
+      {/* Top tag rail */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
+        className="absolute top-28 inset-x-0 z-10 hidden md:flex justify-center"
+      >
+        <span className="inline-flex items-center gap-3 text-[11px] uppercase tracking-widest2 text-cream/70">
+          <span className="h-px w-10 bg-cream/40" />
+          Est. 2022 · Kilpauk, Chennai
+          <span className="h-px w-10 bg-cream/40" />
+        </span>
+      </motion.div>
+
+      <motion.div style={{ opacity }} className="relative z-10 h-full">
+        <Container className="h-full flex flex-col justify-end pb-24 sm:pb-28">
+          <div className="max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              className="inline-flex"
+            >
+              <span className="eyebrow text-latte">
+                <span className="h-px w-8 bg-latte/60" />
+                Cafe · Coffee House · Bakery
+              </span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              className="display-h1 text-cream mt-6 text-balance"
+            >
+              Where Every Cup
+              <br />
+              <span className="italic font-light text-latte">Opens a Conversation</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.9 }}
+              className="mt-7 max-w-xl text-cream/80 text-base sm:text-lg leading-relaxed"
+            >
+              Slow-brewed single origins, hand-folded pastries baked at dawn, and a
+              warm room that quietly invites you to stay. {brand.name} is built for
+              the unhurried hour.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.95, duration: 0.8 }}
+              className="mt-10 flex flex-wrap items-center gap-4"
+            >
+              <ButtonLink href="#menu" variant="cream" size="lg" arrow>
+                Explore Menu
+              </ButtonLink>
+              <ButtonLink href="#visit" variant="ghost" size="lg">
+                Visit Us
+              </ButtonLink>
+            </motion.div>
+          </div>
+        </Container>
+      </motion.div>
+
+      {/* Floating review badge */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.85, y: 30 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ delay: 1.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className="hidden md:block absolute right-8 lg:right-16 bottom-32 z-10"
+      >
+        <div className="relative w-72 rounded-2xl bg-cream/95 backdrop-blur-md p-6 shadow-soft border border-cream/40">
+          <div className="flex items-end justify-between gap-3">
+            <div>
+              <div className="font-display text-5xl leading-none text-espresso">
+                {brand.reviews.rating.toFixed(1)}
+              </div>
+              <div className="mt-1 text-[10px] uppercase tracking-widest2 text-espresso/45">
+                out of 5
+              </div>
+            </div>
+            <StarRating value={brand.reviews.rating} size={20} className="pb-1" />
+          </div>
+          <p className="mt-5 text-sm leading-relaxed text-espresso/85">
+            “A quiet, considered cafe — warm staff, beautiful coffee, the kind of room you don’t want to leave.”
+          </p>
+          <div className="mt-5 pt-4 border-t border-espresso/10 flex items-center justify-between text-[11px] uppercase tracking-widest2 text-espresso/50">
+            <span>{brand.reviews.count.toLocaleString()} reviews</span>
+            <span className="text-caramel font-medium">{brand.reviews.source}</span>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.a
+        href="#menu"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.8 }}
+        className="absolute left-1/2 -translate-x-1/2 bottom-8 z-10 flex flex-col items-center gap-2 text-cream/70 hover:text-cream transition"
+        aria-label="Scroll down"
+      >
+        <span className="text-[10px] uppercase tracking-widest2">Scroll</span>
+        <motion.span
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          className="inline-flex"
+        >
+          <ChevronDown className="h-4 w-4" />
+        </motion.span>
+      </motion.a>
+    </section>
+  );
+}
