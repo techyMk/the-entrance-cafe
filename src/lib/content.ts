@@ -21,6 +21,7 @@ export const brand = {
   social: {
     instagram: "https://www.instagram.com/theentrancecafechennai/",
     instagramHandle: "@theentrancecafechennai",
+    instagramFollowers: 6230,
   },
   reviews: {
     rating: 4.1,
@@ -71,6 +72,98 @@ export const images = {
     u("1521017432531-fbd92d768814", 800),
   ],
 } as const;
+
+/**
+ * Curated Instagram feed.
+ *
+ * Replace this array with the cafe's top-performing posts whenever they
+ * shift. Suggested workflow:
+ *   1. On instagram.com, right-click → "Save image as" for each post
+ *   2. Drop them into /public/insta/ (e.g. /public/insta/post-1.jpg)
+ *   3. Update each entry's `image`, `likes`, `comments`, `views`, `url`, `caption`
+ *
+ * Field notes:
+ *   - `type`: "post" (photo), "reel" (video), or "carousel" (multi-image)
+ *   - `views`: only meaningful for reels; omit on photos
+ *   - `featured: true` enlarges the card into the bento hero slot
+ *
+ * Numbers below are placeholder estimates plausible for a 4.1-star, 1.5k-review
+ * Kilpauk cafe — swap them for actual engagement counts before launch.
+ */
+export type InstaPost = {
+  id: string;
+  image: string;
+  type: "post" | "reel" | "carousel";
+  likes: number;
+  comments: number;
+  views?: number;
+  caption: string;
+  url: string;
+  featured?: boolean;
+};
+
+// Engagement is calibrated to the actual 6.23K-follower account so the
+// numbers feel real, not aspirational. Replace with actual counts when
+// the cafe shares them.
+export const instaPosts: InstaPost[] = [
+  {
+    id: "honey-pour",
+    image: u("1442975631115-c4f7b05b8a2c", 1200),
+    type: "reel",
+    likes: 482,
+    comments: 31,
+    views: 15400,
+    caption: "The honey oat latte, slow-poured. Saturday mornings on Taylors Road.",
+    url: "https://www.instagram.com/theentrancecafechennai/",
+    featured: true,
+  },
+  {
+    id: "dawn-bake",
+    image: u("1509042239860-f550ce710b93", 800),
+    type: "post",
+    likes: 318,
+    comments: 12,
+    caption: "First trays out at 6:42 AM. Croissants don’t wait.",
+    url: "https://www.instagram.com/theentrancecafechennai/",
+  },
+  {
+    id: "window-seat",
+    image: u("1554118811-1e0d58224f24", 800),
+    type: "post",
+    likes: 274,
+    comments: 9,
+    caption: "The window seat at 3 PM. Tagged by @anasuyareads.",
+    url: "https://www.instagram.com/theentrancecafechennai/",
+  },
+  {
+    id: "espresso-pull",
+    image: u("1495474472287-4d71bcdd2085", 1200),
+    type: "reel",
+    likes: 396,
+    comments: 24,
+    views: 8420,
+    caption: "Pulling a Chikmagalur double. Eighteen grams in, thirty-six out.",
+    url: "https://www.instagram.com/theentrancecafechennai/",
+  },
+  {
+    id: "weekend-spread",
+    image: u("1559925393-8be0ec4767c8", 800),
+    type: "carousel",
+    likes: 421,
+    comments: 18,
+    caption: "Sunday brunch board. Swipe for the full table.",
+    url: "https://www.instagram.com/theentrancecafechennai/",
+  },
+  {
+    id: "lamp-light",
+    image: u("1521017432531-fbd92d768814", 800),
+    type: "post",
+    likes: 198,
+    comments: 7,
+    caption: "The lamps come on, one by one. 7:08 PM on a Tuesday.",
+    url: "https://www.instagram.com/theentrancecafechennai/",
+  },
+];
 
 export type MenuItem = {
   id: string;

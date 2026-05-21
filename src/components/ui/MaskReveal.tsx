@@ -52,7 +52,10 @@ export function MaskReveal({
         <span
           key={i}
           className="block overflow-hidden"
-          style={{ paddingBottom: "0.05em" }}
+          // Pad bottom so descenders (g, j, p, q, y) clear the clip box;
+          // negative margin keeps the visual line spacing identical to
+          // the unpadded layout, so MaskReveal is a drop-in.
+          style={{ paddingBottom: "0.22em", marginBottom: "-0.22em" }}
         >
           <motion.span
             custom={i + delay}
