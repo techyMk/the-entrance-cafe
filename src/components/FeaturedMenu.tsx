@@ -40,18 +40,20 @@ export function FeaturedMenu() {
           </ButtonLink>
         </div>
 
-        {/* Bento — featured card spans 2 cols on lg */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 auto-rows-fr">
+        {/* Bento — featured spans 2 cols on every breakpoint to keep the
+            hierarchy intact from mobile up. Smaller cards sit in a 2-col
+            grid on mobile, 4-col on desktop. */}
+        <div className="mt-12 sm:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6 auto-rows-fr">
           {/* Featured card */}
           <motion.article
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-            className="sm:col-span-2 lg:col-span-2 lg:row-span-2 group"
+            className="col-span-2 lg:row-span-2 group"
           >
             <TiltCard intensity={4} className="h-full">
-              <div className="relative h-full min-h-[480px] rounded-3xl overflow-hidden shadow-card hover:shadow-soft transition-shadow duration-500">
+              <div className="relative h-full min-h-[360px] sm:min-h-[480px] rounded-3xl overflow-hidden shadow-card hover:shadow-soft transition-shadow duration-500">
                 <Image
                   src={featured.image}
                   alt={featured.name}
@@ -73,21 +75,21 @@ export function FeaturedMenu() {
                   </span>
                 </div>
 
-                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10 text-cream">
-                  <div className="flex items-end justify-between gap-6">
-                    <div>
-                      <h3 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-tight">
+                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-8 lg:p-10 text-cream">
+                  <div className="flex items-end justify-between gap-4 sm:gap-6">
+                    <div className="min-w-0">
+                      <h3 className="font-display text-3xl sm:text-5xl lg:text-6xl leading-[0.95] tracking-tight">
                         {featured.name}
                       </h3>
-                      <p className="mt-4 max-w-md text-sm sm:text-base leading-relaxed text-cream/80">
+                      <p className="mt-3 sm:mt-4 max-w-md text-[13px] sm:text-base leading-relaxed text-cream/80 line-clamp-2 sm:line-clamp-none">
                         {featured.description}
                       </p>
                     </div>
                     <div className="shrink-0 text-right">
-                      <div className="text-[10px] uppercase tracking-widest2 text-cream/60">
+                      <div className="text-[9px] sm:text-[10px] uppercase tracking-widest2 text-cream/60">
                         From
                       </div>
-                      <div className="font-display text-4xl sm:text-5xl text-cream">
+                      <div className="font-display text-2xl sm:text-5xl text-cream">
                         {featured.price}
                       </div>
                     </div>
@@ -141,17 +143,17 @@ export function FeaturedMenu() {
                       </span>
                     </div>
 
-                    <div className="p-5 flex-1 flex flex-col">
-                      <div className="flex items-baseline justify-between gap-3">
-                        <h3 className="font-display text-xl leading-tight text-espresso group-hover:text-caramel transition-colors duration-300">
+                    <div className="p-4 sm:p-5 flex-1 flex flex-col">
+                      <div className="flex items-baseline justify-between gap-2 sm:gap-3">
+                        <h3 className="font-display text-lg sm:text-xl leading-tight text-espresso group-hover:text-caramel transition-colors duration-300">
                           {item.name}
                         </h3>
-                        <span className="shrink-0 font-display text-lg text-caramel">
+                        <span className="shrink-0 font-display text-base sm:text-lg text-caramel">
                           {item.price}
                         </span>
                       </div>
                       <p className={cn(
-                        "mt-2.5 text-[13px] leading-relaxed text-espresso/65 line-clamp-3"
+                        "mt-2 text-[12px] sm:text-[13px] leading-relaxed text-espresso/65 line-clamp-2 sm:line-clamp-3"
                       )}>
                         {item.description}
                       </p>

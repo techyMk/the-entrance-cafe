@@ -72,7 +72,7 @@ export function About() {
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.9, delay: 0.2 }}
-              className="absolute -right-2 sm:-right-10 -bottom-10 w-40 sm:w-56 aspect-square rounded-3xl overflow-hidden border-[8px] border-espresso shadow-soft"
+              className="absolute right-4 sm:-right-10 -bottom-8 sm:-bottom-10 w-32 sm:w-56 aspect-square rounded-2xl sm:rounded-3xl overflow-hidden border-[6px] sm:border-[8px] border-espresso shadow-soft"
             >
               <Image
                 src={images.aboutDetail}
@@ -88,7 +88,7 @@ export function About() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="absolute -left-3 sm:-left-8 top-10 rounded-2xl bg-cream/95 text-espresso p-4 shadow-soft backdrop-blur"
+              className="absolute left-4 sm:-left-8 top-6 sm:top-10 rounded-xl sm:rounded-2xl bg-cream/95 text-espresso p-3 sm:p-4 shadow-soft backdrop-blur"
             >
               <div className="text-[10px] uppercase tracking-widest2 text-caramel">Est.</div>
               <div className="font-display text-3xl leading-none mt-1">2022</div>
@@ -151,22 +151,22 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="bg-espresso p-7 sm:p-9 relative overflow-hidden"
+              className="bg-espresso p-5 sm:p-9 relative overflow-hidden"
             >
               <Counter
                 to={s.value}
                 decimals={s.decimals ?? 0}
                 suffix={s.suffix}
-                className="block font-display text-5xl sm:text-6xl text-cream tracking-tight"
+                className="block font-display text-4xl sm:text-6xl text-cream tracking-tight leading-none"
               />
-              <div className="mt-2 flex items-center justify-between gap-3">
-                <div className="text-[11px] uppercase tracking-widest2 text-cream/55">
+              <div className="mt-2 sm:mt-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-3">
+                <div className="text-[10px] sm:text-[11px] uppercase tracking-widest2 text-cream/55">
                   {s.label}
                 </div>
                 {s.decimals === 1 && (
                   <StarRating
                     value={s.value}
-                    size={13}
+                    size={12}
                     emptyClassName="text-cream/15"
                     filledClassName="text-latte"
                   />

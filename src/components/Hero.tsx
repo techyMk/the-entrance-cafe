@@ -111,15 +111,15 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.3, duration: 0.9 }}
-              className="mt-10 flex flex-wrap items-center gap-4"
+              className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4"
             >
-              <Magnetic>
-                <ButtonLink href="#menu" variant="cream" size="lg" arrow>
+              <Magnetic className="inline-block">
+                <ButtonLink href="#menu" variant="cream" size="lg" arrow className="w-full sm:w-auto">
                   Explore the Menu
                 </ButtonLink>
               </Magnetic>
-              <Magnetic strength={0.18}>
-                <ButtonLink href="#visit" variant="ghost" size="lg">
+              <Magnetic strength={0.18} className="inline-block">
+                <ButtonLink href="#visit" variant="ghost" size="lg" className="w-full sm:w-auto">
                   Visit the Cafe
                 </ButtonLink>
               </Magnetic>

@@ -75,7 +75,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`}>
-      <body className="font-sans bg-cream text-espresso antialiased overflow-x-hidden">
+      <body className="font-sans bg-cream text-espresso antialiased overflow-x-hidden pb-24 lg:pb-0">
         {children}
       </body>
     </html>

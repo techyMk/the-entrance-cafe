@@ -62,7 +62,7 @@ export function WhyChooseUs() {
           description="We obsess over the details so you don’t have to. Here’s what to expect on every visit."
         />
 
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-12 sm:mt-16 grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
           {features.map((f, i) => (
             <motion.div
               key={f.title}
@@ -74,16 +74,16 @@ export function WhyChooseUs() {
                 delay: (i % 3) * 0.08,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="group relative p-7 sm:p-8 rounded-3xl bg-cream border border-espresso/[0.06] hover:border-caramel/40 hover:-translate-y-1.5 transition-all duration-500 shadow-sm hover:shadow-soft"
+              className="group relative p-5 sm:p-7 lg:p-8 rounded-2xl sm:rounded-3xl bg-cream border border-espresso/[0.06] hover:border-caramel/40 hover:-translate-y-1.5 transition-all duration-500 shadow-sm hover:shadow-soft"
             >
-              <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-espresso text-cream group-hover:bg-caramel transition-colors duration-500">
-                <f.icon className="h-6 w-6" />
+              <div className="inline-flex h-11 w-11 sm:h-14 sm:w-14 items-center justify-center rounded-xl sm:rounded-2xl bg-espresso text-cream group-hover:bg-caramel transition-colors duration-500">
+                <f.icon className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
-              <div className="mt-6 font-display text-2xl text-espresso">{f.title}</div>
-              <p className="mt-3 text-sm leading-relaxed text-espresso/65">
+              <div className="mt-4 sm:mt-6 font-display text-lg sm:text-2xl text-espresso leading-tight">{f.title}</div>
+              <p className="mt-2 sm:mt-3 text-[13px] sm:text-sm leading-relaxed text-espresso/65">
                 {f.body}
               </p>
-              <span className="absolute top-6 right-6 text-[10px] tracking-widest2 text-espresso/30">
+              <span className="absolute top-4 right-4 sm:top-6 sm:right-6 text-[10px] tracking-widest2 text-espresso/30">
                 0{i + 1}
               </span>
             </motion.div>

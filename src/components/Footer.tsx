@@ -74,7 +74,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          <div className="lg:col-span-7 grid grid-cols-3 gap-6 sm:gap-8">
             {cols.map((col) => (
               <div key={col.title}>
                 <h4 className="text-[11px] uppercase tracking-widest2 text-caramel">
@@ -109,19 +109,19 @@ export function Footer() {
           <NewsletterForm />
         </div>
 
-        <div className="mt-12 pt-8 border-t border-cream/10 flex flex-col sm:flex-row items-center justify-between gap-5 text-[11px] uppercase tracking-widest2 text-cream/50">
-          <span>© {new Date().getFullYear()} {brand.name}. All rights reserved.</span>
+        <div className="mt-12 pt-8 border-t border-cream/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-[11px] uppercase tracking-widest2 text-cream/50">
+          <span className="order-2 sm:order-1">© {new Date().getFullYear()} {brand.name}. All rights reserved.</span>
           <a
             href={brand.social.instagram}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${brand.name} on Instagram`}
-            className="inline-flex items-center gap-2 hover:text-cream transition"
+            className="order-1 sm:order-2 inline-flex items-center gap-2 hover:text-cream transition"
           >
             <Instagram className="h-4 w-4" />
             {brand.social.instagramHandle}
           </a>
-          <div className="flex items-center gap-5">
+          <div className="order-3 flex items-center gap-5">
             <a href="#" className="hover:text-cream transition">Privacy</a>
             <a href="#" className="hover:text-cream transition">Terms</a>
           </div>
